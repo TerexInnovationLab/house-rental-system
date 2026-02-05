@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Access Denied - PropertyHub')
+@section('title', 'Access Denied - ZikoSpace')
 
 @section('content')
 <section class="min-h-[70vh] flex items-center justify-center px-6 py-16">

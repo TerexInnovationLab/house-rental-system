@@ -1,31 +1,31 @@
 @extends('layouts.marketing')
 
-@section('title', 'PropertyHub - Find Your Perfect Space')
+@section('title', 'ZikoSpace - Find Your Perfect Space')
 
 @section('content')
-<div class="hero-gradient relative overflow-hidden">
+<div class="hero-gradient relative overflow-hidden bg-gradient-to-br from-purple-700 via-indigo-700 to-violet-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div class="grid md:grid-cols-2 gap-12 items-center">
             <div class="text-white">
                 <h2 class="text-5xl md:text-6xl font-display font-bold mb-6 leading-tight">
                     Find Your Perfect Space
                 </h2>
-                <p class="text-xl text-purple-100 mb-8 leading-relaxed">
+                <p class="text-xl text-white/90 mb-8 leading-relaxed">
                     Discover houses, apartments, hotels, farms, and land for rent or purchase. Your dream property is just a search away.
                 </p>
 
                 <div class="grid grid-cols-3 gap-6 mt-12">
                     <div>
                         <div class="text-4xl font-bold">10K+</div>
-                        <div class="text-purple-200 text-sm mt-1">Properties</div>
+                        <div class="text-white/70 text-sm mt-1">Properties</div>
                     </div>
                     <div>
                         <div class="text-4xl font-bold">5K+</div>
-                        <div class="text-purple-200 text-sm mt-1">Landlords</div>
+                        <div class="text-white/70 text-sm mt-1">Landlords</div>
                     </div>
                     <div>
                         <div class="text-4xl font-bold">15K+</div>
-                        <div class="text-purple-200 text-sm mt-1">Happy Tenants</div>
+                        <div class="text-white/70 text-sm mt-1">Happy Tenants</div>
                     </div>
                 </div>
             </div>
@@ -387,13 +387,13 @@
     </div>
 </section>
 
-<section class="hero-gradient py-20">
+<section class="hero-gradient py-20 bg-gradient-to-br from-purple-700 via-indigo-700 to-violet-800">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 class="text-4xl md:text-5xl font-display font-bold text-white mb-6">
             Ready to Find Your Perfect Property?
         </h2>
-        <p class="text-xl text-purple-100 mb-8">
-            Join thousands of happy tenants and landlords on PropertyHub
+        <p class="text-xl text-white/85 mb-8">
+            Join thousands of happy tenants and landlords on ZikoSpace
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="/signup" class="bg-white text-purple-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all">

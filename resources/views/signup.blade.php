@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'PropertyHub - Create Account')
+@section('title', 'ZikoSpace - Create Account')
 
 @section('content')
 <div class="min-h-screen grid lg:grid-cols-2">
@@ -9,7 +9,7 @@
         <div class="absolute inset-0 sparkle"></div>
         <div class="relative z-10 p-12 flex flex-col justify-between text-white">
             <div>
-                <h1 class="text-3xl font-display font-bold tracking-wide">PropertyHub</h1>
+                <h1 class="text-3xl font-display font-bold tracking-wide">ZikoSpace</h1>
             </div>
             <div>
                 <p class="uppercase tracking-[0.4em] text-xs text-indigo-200 mb-4">Smart Renting</p>
@@ -44,7 +44,7 @@
                 <div class="flex items-center justify-between mb-8">
                     <div>
                         <p class="text-xs uppercase tracking-[0.3em] text-purple-700 mb-2">Create account</p>
-                        <h3 class="text-3xl font-display font-semibold text-slate-900">Welcome to PropertyHub</h3>
+                        <h3 class="text-3xl font-display font-semibold text-slate-900">Welcome to ZikoSpace</h3>
                     </div>
                     <a href="/" class="text-sm font-semibold text-purple-700 hover:text-purple-900">Back home</a>
                 </div>
@@ -127,7 +127,7 @@
                     <div class="flex items-start gap-3 text-sm text-slate-600">
                         <input type="checkbox" class="mt-1 h-4 w-4 rounded border-slate-300 text-purple-600 focus:ring-purple-500">
                         <p>
-                            I agree to PropertyHub's
+                            I agree to ZikoSpace's
                             <a href="#" class="text-purple-700 font-semibold hover:text-purple-900">Terms</a>
                             and
                             <a href="#" class="text-purple-700 font-semibold hover:text-purple-900">Privacy Policy</a>.

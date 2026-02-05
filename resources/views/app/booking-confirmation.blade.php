@@ -1,6 +1,6 @@
 ﻿@extends('layouts.dashboard')
 
-@section('title', 'Booking Confirmation - PropertyHub')
+@section('title', 'Booking Confirmation - ZikoSpace')
 
 @section('dashboard')
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">

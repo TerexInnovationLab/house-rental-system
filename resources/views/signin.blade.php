@@ -1,6 +1,6 @@
 ﻿@extends('layouts.auth')
 
-@section('title', 'PropertyHub - Sign In')
+@section('title', 'ZikoSpace - Sign In')
 
 @section('content')
 <div class="min-h-screen grid lg:grid-cols-2">
@@ -8,7 +8,7 @@
         <div class="absolute inset-0 bg-gradient-to-br from-slate-900 via-indigo-900 to-purple-900"></div>
         <div class="relative z-10 p-12 flex flex-col justify-between text-white">
             <div>
-                <h1 class="text-3xl font-display font-bold tracking-wide">PropertyHub</h1>
+                <h1 class="text-3xl font-display font-bold tracking-wide">ZikoSpace</h1>
             </div>
             <div>
                 <p class="uppercase tracking-[0.4em] text-xs text-indigo-200 mb-4">Welcome Back</p>
@@ -96,7 +96,7 @@
                 </form>
 
                 <div class="mt-6 text-center text-sm text-slate-600">
-                    New to PropertyHub?
+                    New to ZikoSpace?
                     <a href="/signup" class="text-purple-700 font-semibold hover:text-purple-900">Create an account</a>
                 </div>
             </div>

@@ -1,14 +1,14 @@
 @extends('layouts.marketing')
 
-@section('title', 'About PropertyHub')
+@section('title', 'About ZikoSpace')
 
 @section('content')
-<section class="hero-gradient py-20">
+<section class="hero-gradient py-20 bg-gradient-to-br from-purple-700 via-indigo-700 to-violet-800">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-        <p class="uppercase tracking-[0.4em] text-xs text-indigo-200 mb-4">About PropertyHub</p>
+        <p class="uppercase tracking-[0.4em] text-xs text-white/70 mb-4">About ZikoSpace</p>
         <h1 class="text-4xl md:text-5xl font-display font-bold mb-6">Built to make renting simple</h1>
-        <p class="text-lg text-purple-100 max-w-3xl mx-auto">
-            PropertyHub connects tenants and landlords with transparent listings, verified profiles, and clear next steps.
+        <p class="text-lg text-white/85 max-w-3xl mx-auto">
+            ZikoSpace connects tenants and landlords with transparent listings, verified profiles, and clear next steps.
         </p>
     </div>
 </section>

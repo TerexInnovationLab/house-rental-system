@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Rental Application - PropertyHub')
+@section('title', 'Rental Application - ZikoSpace')
 
 @section('sidebar')
 @include('app.partials.customer-sidebar')

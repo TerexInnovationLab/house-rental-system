@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'PropertyHub')</title>
+    <title>@yield('title', 'ZikoSpace')</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css'])
@@ -18,7 +18,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid md:grid-cols-4 gap-8 mb-8">
                 <div>
-                    <h3 class="text-2xl font-display font-bold text-white mb-4">PropertyHub</h3>
+                    <h3 class="text-2xl font-display font-bold text-white mb-4">ZikoSpace</h3>
                     <p class="text-gray-400">Your trusted platform for finding and listing properties</p>
                 </div>
 
@@ -56,7 +56,7 @@
                 @auth
                     <p class="text-sm text-emerald-300 font-medium">You're signed in</p>
                 @endauth
-                <p>&copy; 2026 PropertyHub. All rights reserved.</p>
+                <p>&copy; 2026 ZikoSpace. Built by Terex Innovation. All rights reserved.</p>
             </div>
         </div>
     </footer>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'PropertyHub')</title>
+    <title>@yield('title', 'ZikoSpace')</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css'])
@@ -16,7 +16,7 @@
 
     <footer class="bg-white border-t border-gray-200 py-8 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-gray-500">
-            <p>&copy; 2026 PropertyHub. All rights reserved.</p>
+            <p>&copy; 2026 ZikoSpace. Built by Terex Innovation. All rights reserved.</p>
             <div class="flex items-center gap-6">
                 <a href="#" class="hover:text-purple-600 transition">Privacy Policy</a>
                 <a href="#" class="hover:text-purple-600 transition">Terms of Service</a>
@@ -47,7 +47,7 @@
             var overlay = document.querySelector('.dashboard-overlay');
             var sidebar = document.querySelector('.dashboard-sidebar');
             var isDashboard = document.body.classList.contains('dashboard');
-            var hoverMode = window.matchMedia('(min-width: 768px) and (hover: hover)').matches;
+            var hoverMode = window.matchMedia('(min-width: 768px)').matches;
             var closeTimer;
 
             function openSidebar() {

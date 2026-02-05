@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Admin Dashboard - PropertyHub')
+@section('title', 'Admin Dashboard - ZikoSpace')
 
 @section('styles')
 <style>

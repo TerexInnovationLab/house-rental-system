@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'PropertyHub - Forgot Password')
+@section('title', 'ZikoSpace - Forgot Password')
 
 @section('content')
 <div class="min-h-screen flex items-center justify-center px-6 py-14">

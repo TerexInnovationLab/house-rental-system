@@ -1,6 +1,6 @@
 @extends('layouts.marketing')
 
-@section('title', 'Modern Downtown Apartment - PropertyHub')
+@section('title', 'Modern Downtown Apartment - ZikoSpace')
 
 @section('styles')
 <style>

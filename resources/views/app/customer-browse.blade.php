@@ -1,9 +1,9 @@
 ﻿@extends('layouts.dashboard')
 
-@section('title', 'Search Results - PropertyHub')
+@section('title', 'Search Results - ZikoSpace')
 
 @section('dashboard')
-<section class="hero-gradient py-10">
+<section class="hero-gradient py-10 bg-gradient-to-br from-purple-700 via-indigo-700 to-violet-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         @guest
             <div class="mb-6 rounded-2xl border border-white/40 bg-white/70 backdrop-blur px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">

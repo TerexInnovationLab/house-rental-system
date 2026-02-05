@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'My Properties - PropertyHub')
+@section('title', 'My Properties - ZikoSpace')
 
 @section('sidebar')
 @include('app.partials.landlord-sidebar')
@@ -10,7 +10,7 @@
 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-8">
     <div>
         <h1 class="text-3xl font-display font-bold text-gray-900 mb-2">My Properties</h1>
-        <p class="text-gray-600">All listings you’ve added to PropertyHub.</p>
+        <p class="text-gray-600">All listings you’ve added to ZikoSpace.</p>
     </div>
     <a href="/add-property" class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all">
         Add Property
