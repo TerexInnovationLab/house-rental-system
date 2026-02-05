@@ -10,31 +10,7 @@
     @yield('styles')
 </head>
 <body>
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <div class="flex items-center">
-                    <a href="/" class="text-3xl font-display font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                        PropertyHub
-                    </a>
-                </div>
-
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="/search-results" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Buy</a>
-                    <a href="/search-results" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Rent</a>
-                    <a href="/search-results" class="nav-link text-gray-700 hover:text-purple-600 font-medium">Properties</a>
-                    <a href="/" class="nav-link text-gray-700 hover:text-purple-600 font-medium">About</a>
-                </div>
-
-                <div class="flex items-center space-x-4">
-                    <a href="/signin" class="text-gray-700 hover:text-purple-600 font-medium">Sign In</a>
-                    <a href="/add-property" class="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-6 py-2.5 rounded-full hover:shadow-lg transition-all">
-                        List Property
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
+    @include('layouts.partials.navbar')
 
     @yield('content')
 
@@ -49,9 +25,9 @@
                 <div>
                     <h4 class="font-semibold text-white mb-4">For Tenants</h4>
                     <ul class="space-y-2">
-                        <li><a href="/search-results" class="hover:text-white transition">Browse Properties</a></li>
-                        <li><a href="/customer-dashboard" class="hover:text-white transition">Saved Searches</a></li>
-                        <li><a href="/" class="hover:text-white transition">How It Works</a></li>
+                        <li><a href="/browse" class="hover:text-white transition">Browse Properties</a></li>
+                        <li><a href="/signin" class="hover:text-white transition">Saved Searches</a></li>
+                        <li><a href="/about" class="hover:text-white transition">How It Works</a></li>
                     </ul>
                 </div>
 
@@ -64,17 +40,22 @@
                     </ul>
                 </div>
 
-                <div>
-                    <h4 class="font-semibold text-white mb-4">Company</h4>
-                    <ul class="space-y-2">
-                        <li><a href="/" class="hover:text-white transition">About Us</a></li>
-                        <li><a href="/admin-dashboard" class="hover:text-white transition">Contact</a></li>
-                        <li><a href="/" class="hover:text-white transition">Privacy Policy</a></li>
-                    </ul>
-                </div>
+                @guest
+                    <div>
+                        <h4 class="font-semibold text-white mb-4">Company</h4>
+                        <ul class="space-y-2">
+                            <li><a href="/about" class="hover:text-white transition">About Us</a></li>
+                            <li><a href="/admin-dashboard" class="hover:text-white transition">Contact</a></li>
+                            <li><a href="/" class="hover:text-white transition">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                @endguest
             </div>
 
             <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                @auth
+                    <p class="text-sm text-emerald-300 font-medium">You're signed in</p>
+                @endauth
                 <p>&copy; 2026 PropertyHub. All rights reserved.</p>
             </div>
         </div>

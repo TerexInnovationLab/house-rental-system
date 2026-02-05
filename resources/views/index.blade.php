@@ -32,60 +32,13 @@
 
             <div class="floating">
                 <div class="bg-white rounded-3xl p-8 shadow-2xl">
-                    <h3 class="text-2xl font-display font-semibold mb-6 text-gray-900">Start Your Search</h3>
-
-                    <div class="space-y-4">
-                        <div class="flex gap-3">
-                            <button class="flex-1 py-3 px-4 bg-purple-600 text-white rounded-xl font-medium hover:bg-purple-700 transition">
-                                Rent
-                            </button>
-                            <button class="flex-1 py-3 px-4 bg-gray-100 text-gray-700 rounded-xl font-medium hover:bg-gray-200 transition">
-                                Buy
-                            </button>
-                        </div>
-
-                        <div>
-                            <select class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                                <option>All Property Types</option>
-                                <option>House</option>
-                                <option>Apartment</option>
-                                <option>Hotel</option>
-                                <option>Farm</option>
-                                <option>Land</option>
-                                <option>Commercial</option>
-                            </select>
-                        </div>
-
-                        <div>
-                            <input type="text" placeholder="Location (City, District, etc.)"
-                                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-3">
-                            <input type="number" placeholder="Min Price"
-                                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                            <input type="number" placeholder="Max Price"
-                                class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                        </div>
-
-                        <div>
-                            <select class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                                <option>Any Bedrooms</option>
-                                <option>1 Bedroom</option>
-                                <option>2 Bedrooms</option>
-                                <option>3 Bedrooms</option>
-                                <option>4+ Bedrooms</option>
-                            </select>
-                        </div>
-
-                        <a href="/search-results" class="block text-center w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all">
-                            Search Properties
-                        </a>
-
-                        <a href="/search-results" class="block text-center w-full text-purple-600 py-2 font-medium hover:text-purple-700 transition">
-                            Advanced Filters
-                        </a>
-                    </div>
+                    <h3 class="text-2xl font-display font-semibold mb-4 text-gray-900">Start Your Search</h3>
+                    <p class="text-gray-600 mb-6">
+                        Use our dedicated search experience to filter by location, price, amenities, and more.
+                    </p>
+                    <a href="/browse" class="block text-center w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-4 rounded-xl font-semibold text-lg hover:shadow-xl transition-all">
+                        Browse Properties
+                    </a>
                 </div>
             </div>
         </div>
@@ -171,7 +124,7 @@
                 <h2 class="text-4xl font-display font-bold text-gray-900 mb-4">Featured Properties</h2>
                 <p class="text-xl text-gray-600">Hand-picked properties just for you</p>
             </div>
-            <a href="/search-results" class="text-purple-600 font-semibold hover:text-purple-700 transition">
+            <a href="/browse" class="text-purple-600 font-semibold hover:text-purple-700 transition">
                 View All ->
             </a>
         </div>
@@ -184,11 +137,20 @@
                         <span class="bg-purple-600 text-white px-3 py-1 rounded-full text-sm font-medium">For Rent</span>
                     </div>
                     <div class="absolute top-4 right-4">
-                        <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition">
-                            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                            </svg>
-                        </button>
+                        @auth
+                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition" aria-label="Save listing">
+                                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </button>
+                        @endauth
+                        @guest
+                            <a href="/signin" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition" aria-label="Sign in to save listing">
+                                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </a>
+                        @endguest
                     </div>
                     <div class="absolute bottom-4 right-4">
                         <div class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold text-gray-900">
@@ -246,11 +208,20 @@
                         <span class="bg-green-600 text-white px-3 py-1 rounded-full text-sm font-medium">For Sale</span>
                     </div>
                     <div class="absolute top-4 right-4">
-                        <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition">
-                            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                            </svg>
-                        </button>
+                        @auth
+                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition" aria-label="Save listing">
+                                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </button>
+                        @endauth
+                        @guest
+                            <a href="/signin" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition" aria-label="Sign in to save listing">
+                                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </a>
+                        @endguest
                     </div>
                     <div class="absolute bottom-4 right-4">
                         <div class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold text-gray-900">
@@ -308,11 +279,20 @@
                         <span class="bg-amber-600 text-white px-3 py-1 rounded-full text-sm font-medium">For Rent</span>
                     </div>
                     <div class="absolute top-4 right-4">
-                        <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition">
-                            <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
-                            </svg>
-                        </button>
+                        @auth
+                            <button class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition" aria-label="Save listing">
+                                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </button>
+                        @endauth
+                        @guest
+                            <a href="/signin" class="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover:bg-gray-50 transition" aria-label="Sign in to save listing">
+                                <svg class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </a>
+                        @endguest
                     </div>
                     <div class="absolute bottom-4 right-4">
                         <div class="bg-white/90 backdrop-blur px-3 py-1 rounded-full text-sm font-semibold text-gray-900">

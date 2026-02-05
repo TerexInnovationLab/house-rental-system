@@ -49,11 +49,6 @@
                     <a href="/" class="text-sm font-semibold text-purple-700 hover:text-purple-900">Back home</a>
                 </div>
 
-                <div class="grid grid-cols-2 gap-3 mb-6">
-                    <button class="py-3 rounded-xl bg-purple-700 text-white font-semibold shadow-lg shadow-purple-200/50">Tenant</button>
-                    <button class="py-3 rounded-xl bg-white text-slate-700 font-semibold border border-slate-200 hover:border-purple-400 transition">Landlord</button>
-                </div>
-
                 <div class="space-y-3 mb-6">
                     <button type="button" class="w-full flex items-center justify-center gap-3 px-6 py-3 border border-slate-200 rounded-xl hover:border-purple-400 hover:bg-purple-50 transition">
                         <span class="w-5 h-5 rounded-full bg-white flex items-center justify-center text-xs font-bold text-red-500 border border-slate-200">G</span>
@@ -74,33 +69,58 @@
                     </div>
                 </div>
 
-                <form class="space-y-4">
+                @if ($errors->any())
+                    <div class="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+                        <ul class="list-disc list-inside">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                <form class="space-y-4" method="POST" action="{{ route('auth.register') }}">
+                    @csrf
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="role" value="customer" class="sr-only peer" {{ old('role', 'customer') === 'customer' ? 'checked' : '' }}>
+                            <span class="block py-3 rounded-xl bg-purple-700 text-white font-semibold shadow-lg shadow-purple-200/50 text-center peer-checked:bg-purple-700">
+                                Tenant
+                            </span>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="role" value="landlord" class="sr-only peer" {{ old('role') === 'landlord' ? 'checked' : '' }}>
+                            <span class="block py-3 rounded-xl bg-white text-slate-700 font-semibold border border-slate-200 hover:border-purple-400 transition text-center peer-checked:bg-purple-700 peer-checked:text-white">
+                                Landlord
+                            </span>
+                        </label>
+                    </div>
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div>
                             <label class="text-sm font-medium text-slate-700">First name</label>
-                            <input type="text" placeholder="Alex" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition">
+                            <input type="text" name="first_name" value="{{ old('first_name') }}" placeholder="Alex" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition" required>
                         </div>
                         <div>
                             <label class="text-sm font-medium text-slate-700">Last name</label>
-                            <input type="text" placeholder="Johnson" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition">
+                            <input type="text" name="last_name" value="{{ old('last_name') }}" placeholder="Johnson" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition" required>
                         </div>
                     </div>
                     <div>
                         <label class="text-sm font-medium text-slate-700">Email address</label>
-                        <input type="email" placeholder="you@email.com" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition">
+                        <input type="email" name="email" value="{{ old('email') }}" placeholder="you@email.com" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition" required>
                     </div>
                     <div>
                         <label class="text-sm font-medium text-slate-700">Phone</label>
-                        <input type="tel" placeholder="+265 999 000 000" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition">
+                        <input type="tel" name="phone" value="{{ old('phone') }}" placeholder="+265 999 000 000" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition">
                     </div>
                     <div class="grid sm:grid-cols-2 gap-4">
                         <div>
                             <label class="text-sm font-medium text-slate-700">Password</label>
-                            <input type="password" placeholder="Create password" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition">
+                            <input type="password" name="password" placeholder="Create password" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition" required>
                         </div>
                         <div>
                             <label class="text-sm font-medium text-slate-700">Confirm</label>
-                            <input type="password" placeholder="Repeat password" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition">
+                            <input type="password" name="password_confirmation" placeholder="Repeat password" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition" required>
                         </div>
                     </div>
 

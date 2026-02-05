@@ -307,13 +307,29 @@
                         </div>
                     </div>
 
-                    <button class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-4 rounded-xl font-semibold mb-3 hover:shadow-lg transition-all">
-                        Schedule Viewing
-                    </button>
+                    @auth
+                        <button class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-4 rounded-xl font-semibold mb-3 hover:shadow-lg transition-all">
+                            Schedule Viewing
+                        </button>
 
-                    <button class="w-full bg-white border-2 border-purple-600 text-purple-600 py-4 rounded-xl font-semibold mb-3 hover:bg-purple-50 transition-all">
-                        Send Message
-                    </button>
+                        <button class="w-full bg-white border-2 border-purple-600 text-purple-600 py-4 rounded-xl font-semibold mb-3 hover:bg-purple-50 transition-all">
+                            Send Message
+                        </button>
+                        <a href="/customer/apply" class="block text-center w-full bg-slate-900 text-white py-4 rounded-xl font-semibold hover:bg-slate-800 transition-all">
+                            Apply for this property
+                        </a>
+                    @endauth
+                    @guest
+                        <a href="/signin" class="block text-center w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-4 rounded-xl font-semibold mb-3 hover:shadow-lg transition-all">
+                            Sign in to Schedule Viewing
+                        </a>
+                        <a href="/signin" class="block text-center w-full bg-white border-2 border-purple-600 text-purple-600 py-4 rounded-xl font-semibold mb-3 hover:bg-purple-50 transition-all">
+                            Sign in to Send Message
+                        </a>
+                        <a href="/signin" class="block text-center w-full bg-slate-900 text-white py-4 rounded-xl font-semibold hover:bg-slate-800 transition-all">
+                            Sign in to Apply
+                        </a>
+                    @endguest
 
                     <button class="w-full bg-gray-100 text-gray-700 py-4 rounded-xl font-semibold hover:bg-gray-200 transition-all flex items-center justify-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

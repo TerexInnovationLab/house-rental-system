@@ -1,8 +1,8 @@
-@extends('layouts.marketing')
+﻿@extends('layouts.dashboard')
 
 @section('title', 'Search Results - PropertyHub')
 
-@section('content')
+@section('dashboard')
 <section class="hero-gradient py-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         @guest
@@ -276,3 +276,4 @@
     </div>
 </section>
 @endsection
+

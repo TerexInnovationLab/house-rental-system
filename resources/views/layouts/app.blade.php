@@ -10,57 +10,7 @@
     @yield('styles')
 </head>
 <body class="bg-slate-50 @yield('body_class')">
-    <header class="bg-white shadow-sm sticky top-0 z-50">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <a href="/" class="text-2xl font-display font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                    PropertyHub
-                </a>
-                <button id="dashboard-toggle" class="md:hidden p-2 rounded-lg border border-gray-200 text-gray-600 hover:text-purple-600 hover:border-purple-300 transition">
-                    <span class="sr-only">Toggle sidebar</span>
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-                    </svg>
-                </button>
-                <div class="hidden md:flex items-center gap-6">
-                    <a href="/search-results" class="nav-link js-nav-link text-gray-700 hover:text-purple-600 font-medium">Browse</a>
-                    <a href="/messages" class="nav-link js-nav-link text-gray-700 hover:text-purple-600 font-medium">Messages</a>
-                    <a href="/profile" class="nav-link js-nav-link text-gray-700 hover:text-purple-600 font-medium">Profile</a>
-                    <a href="/customer-dashboard" class="nav-link js-nav-link text-gray-700 hover:text-purple-600 font-medium">Dashboard</a>
-                </div>
-                <div class="flex items-center gap-3">
-                    <div class="hidden md:flex items-center gap-2">
-                        <span class="text-xs uppercase tracking-[0.2em] text-gray-400">Role</span>
-                        <select
-                            class="text-sm border border-gray-200 rounded-lg px-3 py-1.5 bg-white text-gray-700 focus:ring-2 focus:ring-purple-200 focus:border-purple-500"
-                            onchange="if (this.value) window.location.href = this.value;"
-                        >
-                            <option value="">Select</option>
-                            <option value="/landlord-dashboard">Landlord</option>
-                            <option value="/customer-dashboard">Tenant</option>
-                            <option value="/admin-dashboard">Admin</option>
-                        </select>
-                    </div>
-                    <div class="w-9 h-9 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 text-white flex items-center justify-center text-sm font-semibold">
-                        JD
-                    </div>
-                    <span class="text-sm font-medium text-gray-700 hidden sm:block">John Doe</span>
-                </div>
-            </div>
-        </nav>
-        <div class="md:hidden px-4 sm:px-6 lg:px-8 pb-3">
-            <label class="block text-xs uppercase tracking-[0.2em] text-gray-400 mb-2">Role</label>
-            <select
-                class="w-full text-sm border border-gray-200 rounded-lg px-3 py-2 bg-white text-gray-700 focus:ring-2 focus:ring-purple-200 focus:border-purple-500"
-                onchange="if (this.value) window.location.href = this.value;"
-            >
-                <option value="">Select</option>
-                <option value="/landlord-dashboard">Landlord</option>
-                <option value="/customer-dashboard">Tenant</option>
-                <option value="/admin-dashboard">Admin</option>
-            </select>
-        </div>
-    </header>
+    @include('layouts.partials.navbar')
 
     @yield('content')
 
@@ -85,7 +35,11 @@
                 }
                 var linkPath = href.split('#')[0].replace(/\/$/, '');
                 if (linkPath === currentPath) {
-                    link.classList.add('text-purple-600', 'font-semibold');
+                    if (link.classList.contains('sidebar-link')) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.add('text-purple-600', 'font-semibold');
+                    }
                 }
             });
 

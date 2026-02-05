@@ -1,4 +1,4 @@
-@extends('layouts.auth')
+ï»¿@extends('layouts.auth')
 
 @section('title', 'PropertyHub - Sign In')
 
@@ -22,9 +22,9 @@
             </div>
             <div class="flex items-center gap-4 text-sm text-indigo-200">
                 <span>Secure login</span>
-                <span>•</span>
+                <span>ï¿½</span>
                 <span>Fast access</span>
-                <span>•</span>
+                <span>ï¿½</span>
                 <span>Trusted listings</span>
             </div>
         </div>
@@ -41,7 +41,18 @@
                     <a href="/" class="text-sm font-semibold text-purple-700 hover:text-purple-900">Back home</a>
                 </div>
 
-                <form class="space-y-4">
+                @if ($errors->any())
+                    <div class="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+                        <ul class="list-disc list-inside">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                <form class="space-y-4" method="POST" action="{{ route('auth.login') }}">
+                    @csrf
                     <div class="space-y-3">
                         <button type="button" class="w-full flex items-center justify-center gap-3 px-6 py-3 border border-slate-200 rounded-xl hover:border-purple-400 hover:bg-purple-50 transition">
                             <span class="w-5 h-5 rounded-full bg-white flex items-center justify-center text-xs font-bold text-red-500 border border-slate-200">G</span>
@@ -64,16 +75,16 @@
 
                     <div>
                         <label class="text-sm font-medium text-slate-700">Email address</label>
-                        <input type="email" placeholder="you@email.com" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition">
+                        <input type="email" name="email" value="{{ old('email') }}" placeholder="you@email.com" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition" required>
                     </div>
                     <div>
                         <label class="text-sm font-medium text-slate-700">Password</label>
-                        <input type="password" placeholder="Enter your password" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition">
+                        <input type="password" name="password" placeholder="Enter your password" class="mt-2 w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-purple-500 focus:ring-2 focus:ring-purple-200 transition" required>
                     </div>
 
                     <div class="flex items-center justify-between text-sm text-slate-600">
                         <label class="flex items-center gap-2">
-                            <input type="checkbox" class="h-4 w-4 rounded border-slate-300 text-purple-600 focus:ring-purple-500">
+                            <input type="checkbox" name="remember" class="h-4 w-4 rounded border-slate-300 text-purple-600 focus:ring-purple-500">
                             Remember me
                         </label>
                         <a href="/forgot-password" class="text-purple-700 font-semibold hover:text-purple-900">Forgot password?</a>

@@ -1,8 +1,8 @@
-@extends('layouts.app')
+﻿@extends('layouts.dashboard')
 
 @section('title', 'Booking Confirmation - PropertyHub')
 
-@section('content')
+@section('dashboard')
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div class="text-center mb-8">
         <div class="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-400 to-emerald-600 text-white flex items-center justify-center mx-auto text-4xl font-bold shadow-lg">
@@ -79,3 +79,4 @@
     </div>
 </div>
 @endsection
+

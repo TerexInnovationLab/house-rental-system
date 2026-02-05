@@ -1,4 +1,4 @@
-@extends('layouts.app')
+﻿@extends('layouts.dashboard')
 
 @section('title', 'Add Property - PropertyHub')
 
@@ -26,7 +26,7 @@
 </style>
 @endsection
 
-@section('content')
+@section('dashboard')
 <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
     <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10">
         <div>
@@ -345,3 +345,4 @@
     </form>
 </div>
 @endsection
+
