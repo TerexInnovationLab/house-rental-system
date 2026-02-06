@@ -32,21 +32,21 @@
 
 <div id="users" class="grid md:grid-cols-4 gap-6 mb-8">
     <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-        <div class="text-3xl font-bold text-gray-900 mb-1">2,456</div>
+        <div class="text-3xl font-bold text-gray-900 mb-1">{{ $stats['total_users'] ?? 0 }}</div>
         <div class="text-gray-600 text-sm">Total Users</div>
-        <div class="mt-3 text-xs text-gray-500">845 Landlords - 1,611 Tenants</div>
+        <div class="mt-3 text-xs text-gray-500">{{ $stats['total_landlords'] }} Landlords - {{ $stats['total_customers'] }} Tenants</div>
     </div>
     <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-        <div class="text-3xl font-bold text-gray-900 mb-1">8,124</div>
+        <div class="text-3xl font-bold text-gray-900 mb-1">{{ $stats['available_properties'] ?? 0 }}</div>
         <div class="text-gray-600 text-sm">Active Listings</div>
-        <div class="mt-3 text-xs text-gray-500">12 pending approval</div>
+        <div class="mt-3 text-xs text-gray-500">{{ $stats['pending_applications'] ?? 0}} pending approval</div>
     </div>
     <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-        <div class="text-3xl font-bold text-gray-900 mb-1">1,234</div>
+        <div class="text-3xl font-bold text-gray-900 mb-1">{{ $stats['applications'] ?? 0 }}</div>
         <div class="text-gray-600 text-sm">Applications (This Month)</div>
     </div>
     <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-        <div class="text-3xl font-bold text-gray-900 mb-1">$124K</div>
+        <div class="text-3xl font-bold text-gray-900 mb-1">MWK {{ number_format($stats['total_revenue'] ?? 0, 2) }}</div>
         <div class="text-gray-600 text-sm">Revenue (MTD)</div>
     </div>
 </div>
@@ -100,6 +100,7 @@
     </div>
 </div>
 
+
 <div class="grid lg:grid-cols-3 gap-8 mb-8" id="disputes">
     <div class="lg:col-span-2 bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
         <div class="flex justify-between items-center mb-6">
@@ -108,31 +109,27 @@
         </div>
 
         <div class="space-y-4">
+            @forelse($pending_properties as $property)
             <div class="flex items-center gap-4 p-4 bg-yellow-50 rounded-xl border border-yellow-200">
                 <div class="w-16 h-16 bg-gradient-to-br from-purple-300 to-indigo-400 rounded-lg flex-shrink-0"></div>
                 <div class="flex-1">
-                    <h3 class="font-semibold text-gray-900 mb-1">Luxury Penthouse</h3>
-                    <p class="text-sm text-gray-600 mb-1">Downtown, Lilongwe - $2,500/mo</p>
-                    <div class="text-xs text-gray-600">By: Michael Chen - Submitted 2h ago</div>
+                    <h3 class="font-semibold text-gray-900 mb-1">{{ $property->title }}</h3>
+                    <p class="text-sm text-gray-600 mb-1">{{ $property->location }}</p>
+                    <div class="text-xs text-gray-600">MWK {{ number_format($property->rent, 2) }}</div>
                 </div>
                 <div class="flex gap-2">
                     <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-sm font-medium">Approve</button>
                     <button class="px-4 py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition text-sm font-medium">Reject</button>
                 </div>
             </div>
+              @empty
+                <div>
+                    <span class="text-sm font-medium text-gray-900">
+                        No records found
+                    </span>
+                </div>
+            @endforelse
 
-            <div class="flex items-center gap-4 p-4 bg-gray-50 rounded-xl">
-                <div class="w-16 h-16 bg-gradient-to-br from-green-300 to-teal-400 rounded-lg flex-shrink-0"></div>
-                <div class="flex-1">
-                    <h3 class="font-semibold text-gray-900 mb-1">Cozy Studio Apartment</h3>
-                    <p class="text-sm text-gray-600 mb-1">Area 43, Lilongwe - $850/mo</p>
-                    <div class="text-xs text-gray-600">By: Lisa Wong - Submitted 5h ago</div>
-                </div>
-                <div class="flex gap-2">
-                    <button class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition text-sm font-medium">Approve</button>
-                    <button class="px-4 py-2 bg-red-100 text-red-600 rounded-lg hover:bg-red-200 transition text-sm font-medium">Reject</button>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -170,32 +167,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="border-b border-gray-100 hover:bg-gray-50">
-                    <td class="py-4 px-4">
-                        <div class="font-medium text-gray-900">Michael Chen</div>
-                        <div class="text-sm text-gray-600">michael.c@email.com</div>
-                    </td>
-                    <td class="py-4 px-4">
-                        <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">Landlord</span>
-                    </td>
-                    <td class="py-4 px-4 text-gray-700">Feb 4, 2026</td>
-                    <td class="py-4 px-4">
-                        <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Verified</span>
-                    </td>
-                </tr>
-                <tr class="border-b border-gray-100 hover:bg-gray-50">
-                    <td class="py-4 px-4">
-                        <div class="font-medium text-gray-900">Emily Wilson</div>
-                        <div class="text-sm text-gray-600">emily.w@email.com</div>
-                    </td>
-                    <td class="py-4 px-4">
-                        <span class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Tenant</span>
-                    </td>
-                    <td class="py-4 px-4 text-gray-700">Feb 4, 2026</td>
-                    <td class="py-4 px-4">
-                        <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Active</span>
-                    </td>
-                </tr>
+                @foreach($recent_users as $user)
+                    <tr class="border-b border-gray-100 hover:bg-gray-50">
+                        <td class="py-4 px-4">
+                            <div class="font-medium text-gray-900">{{ $user->full_name }}</div>
+                            <div class="text-sm text-gray-600">{{ $user->email }}</div>
+                        </td>
+                        <td class="py-4 px-4">
+                            <span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium">{{ $user->role->name }}</span>
+                        </td>
+                        <td class="py-4 px-4 text-gray-700">{{ $user->created_at }}</td>
+                        <td class="py-4 px-4">
+                            <span class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">{{ $user->status }}</span>
+                        </td>
+                    </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

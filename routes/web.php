@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 
 Route::get('/', function () {
     if (Auth::check()) {
@@ -97,6 +98,23 @@ Route::get('/customer-dashboard', function () {
     return view('app.customer-dashboard');
 })->middleware(['auth', 'role:customer'])->name('customer.dashboard');
 
+/*Route::get('/admin-dashboard', [AdminDashboardController::class, 'index'])
+    ->name('admin.dashboard');
+
 Route::get('/admin-dashboard', function () {
     return view('app.admin-dashboard');
 })->middleware(['auth', 'role:admin'])->name('admin.dashboard');
+*/
+
+Route::get('/admin-dashboard', [AdminDashboardController::class, 'index'])
+    ->name('admin.dashboard');
+
+
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index'])
+        ->name('admin.dashboard');
+});
+
+Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {
+    Route::get('/dashboard', [AdminDashboardController::class, 'index']);
+});
