@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+rentalsusers-- phpMyAdmin SQL Dump
 -- version 5.2.3
 -- https://www.phpmyadmin.net/
 --
@@ -26,7 +26,7 @@ CREATE DATABASE IF NOT EXISTS `rentals`
   COLLATE utf8mb4_unicode_ci;
 
 USE `rentals`;
-
+rentals
 
 -- --------------------------------------------------------
 

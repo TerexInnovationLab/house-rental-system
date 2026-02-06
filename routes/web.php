@@ -113,6 +113,12 @@ Route::get('/admin-dashboard', [AdminDashboardController::class, 'index'])
 Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])
         ->name('admin.dashboard');
+    Route::get('/users', [AdminDashboardController::class, 'users'])
+        ->name('admin.users');
+    Route::get('/properties', [AdminDashboardController::class, 'properties'])
+        ->name('admin.properties');
+    Route::get('/disputes', [AdminDashboardController::class, 'disputes'])
+        ->name('admin.disputes');
 });
 
 Route::middleware(['auth', 'admin'])->prefix('admin')->group(function () {

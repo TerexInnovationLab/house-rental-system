@@ -6,11 +6,13 @@
 <nav class="bg-white shadow-sm sticky top-0 z-50">
     <div class="w-full px-3 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
-            <a href="{{ $homeHref }}" class="inline-flex items-center gap-2 -ml-1 sm:-ml-2 text-2xl font-display font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+            <a href="{{ $homeHref }}" class="inline-flex items-center gap-2 -ml-1 sm:-ml-2 text-2xl font-display font-bold">
                 <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10l9-6 9 6v10a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1V10z"/>
                 </svg>
-                <span>ZikoSpace</span>
+                <span class="bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent" style="color:#7c3aed;">
+                    ZikoSpace
+                </span>
             </a>
 
             @if ($isDashboard)
@@ -53,13 +55,13 @@
 
             <div class="flex items-center gap-3">
                 @auth
-                    <a href="/profile" class="w-9 h-9 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 text-white flex items-center justify-center text-sm font-semibold hover:shadow-md transition" aria-label="Profile">
-                        {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
-                    </a>
                     <span class="hidden sm:inline-flex items-center text-xs font-semibold text-emerald-700 bg-emerald-100 px-2.5 py-1 rounded-full">
                         You're signed in
                     </span>
                     <span class="text-sm font-medium text-gray-700 hidden sm:block">{{ auth()->user()->name }}</span>
+                    <a href="/profile" class="w-9 h-9 rounded-full bg-gradient-to-br from-purple-500 to-indigo-600 text-white flex items-center justify-center text-sm font-semibold hover:shadow-md transition" aria-label="Profile" style="background: linear-gradient(135deg, #8b5cf6, #6366f1); color: #ffffff;">
+                        {{ strtoupper(substr(auth()->user()->name, 0, 1)) }}
+                    </a>
                 @endauth
                 @guest
                     <a href="/signin" class="inline-flex items-center gap-2 text-gray-700 hover:text-purple-600 font-medium">

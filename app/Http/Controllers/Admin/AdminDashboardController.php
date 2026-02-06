@@ -48,6 +48,49 @@ class AdminDashboardController extends Controller
             'recent_users' => $recent_users,
             'pending_properties' => $pending_properties,
         ]);
+    }
 
+    public function users()
+    {
+        $stats = [
+            'total_users' => User::count(),
+            'total_landlords' => User::whereHas('role', function ($query) {
+                $query->where('name', 'landlord');
+            })->count(),
+
+            'total_customers' => User::whereHas('role', function ($query) {
+                $query->where('name', 'Customer');
+            })->count(),
+        ];
+
+        $recent_users = User::latest()->get();
+
+        return view('app.admin-users', [
+            'stats' => $stats,
+            'recent_users' => $recent_users,
+        ]);
+    }
+
+    public function properties()
+    {
+        $stats = [
+            'total_properties' => Property::count(),
+            'available_properties' => Property::where('status', 'available')->count(),
+            'occupied_properties' => Property::where('status', 'occupied')->count(),
+        ];
+
+        $recent_properties = Property::latest()->get();
+        $pending_properties = Property::where('status', 'pending')->latest()->get();
+
+        return view('app.admin-properties', [
+            'stats' => $stats,
+            'recent_properties' => $recent_properties,
+            'pending_properties' => $pending_properties,
+        ]);
+    }
+
+    public function disputes()
+    {
+        return view('app.admin-disputes');
     }
 }

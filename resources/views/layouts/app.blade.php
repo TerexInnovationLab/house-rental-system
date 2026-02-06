@@ -7,6 +7,30 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css'])
+    <style>
+        .dashboard .dashboard-sidebar {
+            transform: translateX(-100%);
+        }
+        .dashboard.sidebar-open .dashboard-sidebar {
+            transform: translateX(0);
+        }
+        .dashboard .dashboard-overlay {
+            display: none;
+        }
+        .dashboard.sidebar-open .dashboard-overlay {
+            display: block;
+        }
+        @media (min-width: 768px) {
+            .dashboard main,
+            .dashboard footer {
+                margin-left: 0;
+            }
+            .dashboard.sidebar-open main,
+            .dashboard.sidebar-open footer {
+                margin-left: 16rem;
+            }
+        }
+    </style>
     @yield('styles')
 </head>
 <body class="bg-slate-50 @yield('body_class')">
